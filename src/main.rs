@@ -1,6 +1,6 @@
 mod quiz1;
-mod quiz2;
-mod quiz3;
+mod quiz21;
+mod quiz13;
 fn main() {
     // let a = f();
     // println!("{:?}", a);

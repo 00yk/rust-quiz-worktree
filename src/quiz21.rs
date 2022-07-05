@@ -30,8 +30,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_quiz2() {
-        println!("quiz2");
+    fn test_quiz21() {
+        println!("quiz21");
         let x = || { (return) || true; };
         x().f();
 
