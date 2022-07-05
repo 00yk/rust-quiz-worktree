@@ -12,6 +12,7 @@ mod tests {
 
     #[test]
     fn test_quiz1() {
+        println!("quiz1");
         // left associative
         println!("{}", 1 << 1 << 1 << 1);
         println!("{}", ((1 << 1) << 1) << 1);
@@ -24,6 +25,8 @@ mod tests {
             m! { (return) || true },
             m! { {return} || true },
         );
+        println!();
+        println!();
     }
 
 }

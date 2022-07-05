@@ -31,6 +31,7 @@ mod tests {
 
     #[test]
     fn test_quiz2() {
+        println!("quiz2");
         let x = || { (return) || true; };
         x().f();
 
@@ -48,5 +49,7 @@ mod tests {
 
         let x = loop { break || true; };
         x.f();
+        println!();
+        println!();
     }
 }
