@@ -1,4 +1,3 @@
-
 macro_rules! m {
     ($($s:stmt)*) => {
         $(
@@ -28,5 +27,4 @@ mod tests {
         println!();
         println!();
     }
-
 }

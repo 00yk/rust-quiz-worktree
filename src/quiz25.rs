@@ -29,27 +29,68 @@ mod tests {
     }
     #[test]
     fn test_quiz25_stackoverflow() {
-
-        A.m();                   // A::m()      , Self == @
-        // without the Copy trait, (&A).m() would be a compilation error:
-        // cannot move out of borrowed content
-        // (&A).m();                // A::m()      , Self == *@
-        (&&A).m();               // &&&A::m()   , Self == &@
-        (&&&A).m();              // &&&A::m()   , Self == @
-        A.refm();                // A::refm()   , Self == @
-        (&A).refm();             // A::refm()   , Self == *@
-        (&&A).refm();            // A::refm()   , Self == **@
-        (&&&A).refm();           // &&&A::refm(), Self == @
+        A.m(); // A::m()      , Self == @
+               // without the Copy trait, (&A).m() would be a compilation error:
+               // cannot move out of borrowed content
+               // (&A).m();                // A::m()      , Self == *@
+        (&&A).m(); // &&&A::m()   , Self == &@
+        (&&&A).m(); // &&&A::m()   , Self == @
+        A.refm(); // A::refm()   , Self == @
+        (&A).refm(); // A::refm()   , Self == *@
+        (&&A).refm(); // A::refm()   , Self == **@
+        (&&&A).refm(); // &&&A::refm(), Self == @
+    }
+    #[test]
+    fn test_quiz25_extra() {
+        A.meth();
+        A.meth();
     }
 }
 
-trait M { fn m(self); }
-trait RefM { fn refm(&self); }
+trait Mmove {
+    fn meth(self);
+}
+trait Mref {
+    fn meth(&self);
+}
+trait M {
+    fn m(self);
+}
+trait RefM {
+    fn refm(&self);
+}
 // #[derive(Clone, Copy)]
 struct A;
 
-impl M for    A { fn m(self) { println!("A::m()");    } }
-impl M for &&&A { fn m(self) { println!("&&&A::m()"); } }
+impl M for A {
+    fn m(self) {
+        println!("A::m()");
+    }
+}
+impl M for &&&A {
+    fn m(self) {
+        println!("&&&A::m()");
+    }
+}
 
-impl RefM for    A { fn refm(&self) { println!("A::refm()");    } }
-impl RefM for &&&A { fn refm(&self) { println!("&&&A::refm()"); } }
+impl RefM for A {
+    fn refm(&self) {
+        println!("A::refm()");
+    }
+}
+impl RefM for &&&A {
+    fn refm(&self) {
+        println!("&&&A::refm()");
+    }
+}
+
+impl Mref for A {
+    fn meth(&self) {
+        println!("<A as Mref>::meth()");
+    }
+}
+impl Mmove for A {
+    fn meth(self) {
+        println!("<A as Mmove>::meth()");
+    }
+}

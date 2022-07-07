@@ -1,4 +1,3 @@
-
 fn check(x: i32) -> bool {
     print!("{}", x);
     false

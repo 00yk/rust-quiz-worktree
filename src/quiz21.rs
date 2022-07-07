@@ -32,22 +32,34 @@ mod tests {
     #[test]
     fn test_quiz21() {
         println!("quiz21");
-        let x = || { (return) || true; };
+        let x = || {
+            (return) || true;
+        };
         x().f();
 
-        let x = loop { (break) || true; };
+        let x = loop {
+            (break) || true;
+        };
         x.f();
 
-        let x = || { return (|| true); };
+        let x = || {
+            return (|| true);
+        };
         x().f();
 
-        let x = loop { break (|| true); };
+        let x = loop {
+            break (|| true);
+        };
         x.f();
 
-        let x = || { return || true; };
+        let x = || {
+            return || true;
+        };
         x().f();
 
-        let x = loop { break || true; };
+        let x = loop {
+            break || true;
+        };
         x.f();
         println!();
         println!();

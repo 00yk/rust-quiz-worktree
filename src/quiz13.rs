@@ -12,6 +12,5 @@ mod tests {
         print!("{}", eq as u8);
         println!();
         println!();
-
     }
 }
